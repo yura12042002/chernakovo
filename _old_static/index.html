@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ООО «Чернаково» — зерновая компания Новосибирской области. Более 20 лет выращиваем пшеницу, ячмень, горох, гречиху и рапс. 9 000 Га земли, современное производство." />
+  <title>ООО «Чернаково» — зерновая компания | Новосибирская область</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ░░░ Прелоадер ░░░ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__wheat">
+      <svg viewBox="0 0 40 80" width="44" height="88" aria-hidden="true">
+        <g class="preloader__stem">
+          <path d="M20 80 L20 28" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M20 40 q-12 -4 -16 -16 q12 0 16 10 Z" fill="currentColor"/>
+          <path d="M20 40 q12 -4 16 -16 q-12 0 -16 10 Z" fill="currentColor"/>
+          <path d="M20 30 q-11 -3 -14 -15 q11 0 14 9 Z" fill="currentColor"/>
+          <path d="M20 30 q11 -3 14 -15 q-11 0 -14 9 Z" fill="currentColor"/>
+          <path d="M20 22 q-9 -3 -11 -14 q9 0 11 8 Z" fill="currentColor"/>
+          <path d="M20 22 q9 -3 11 -14 q-9 0 -11 8 Z" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <span class="preloader__label">ЧЕРНАКОВО</span>
+  </div>
+
+  <!-- ░░░ Прогресс-бар скролла ░░░ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ░░░ Шапка ░░░ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo" aria-label="ООО Чернаково — на главную">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+            <path d="M16 27 L16 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M16 17 q-7 -2 -9 -9 q7 0 9 6 Z" fill="currentColor"/>
+            <path d="M16 17 q7 -2 9 -9 q-7 0 -9 6 Z" fill="currentColor"/>
+            <path d="M16 22 q-5 -1.5 -6.5 -7 q5 0 6.5 4.5 Z" fill="currentColor"/>
+            <path d="M16 22 q5 -1.5 6.5 -7 q-5 0 -6.5 4.5 Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          <strong>ЧЕРНАКОВО</strong>
+          <small>зерновая компания</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#about" class="nav__link">О компании</a>
+        <a href="#stats" class="nav__link">Цифры</a>
+        <a href="#crops" class="nav__link">Культуры</a>
+        <a href="#advantages" class="nav__link">Почему мы</a>
+        <a href="#geo" class="nav__link">География</a>
+        <a href="#contacts" class="nav__link nav__link--cta">Контакты</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ░░░ HERO ░░░ -->
+    <section class="hero" id="hero">
+      <!-- анимированное поле -->
+      <div class="hero__field" aria-hidden="true">
+        <div class="hero__sky"></div>
+        <div class="hero__sun"></div>
+        <div class="hero__hills">
+          <div class="hill hill--1"></div>
+          <div class="hill hill--2"></div>
+          <div class="hill hill--3"></div>
+        </div>
+        <div class="wheat-strip">
+          <!-- колоски генерируются скриптом -->
+        </div>
+        <div class="hero__grain" id="heroGrain"></div>
+      </div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow reveal" data-reveal>
+          <span class="dot"></span> Новосибирская область · с 2004 года
+        </p>
+        <h1 class="hero__title">
+          <span class="reveal-line"><span>Зерновая</span></span>
+          <span class="reveal-line"><span class="accent">компания</span></span>
+          <span class="reveal-line"><span>«Чернаково»</span></span>
+        </h1>
+        <p class="hero__lead reveal" data-reveal data-delay="200">
+          Более <strong>20&nbsp;лет</strong> — ваш надёжный партнёр в аграрном бизнесе.
+          Выращиваем пшеницу, ячмень, горох, гречиху и рапс на&nbsp;9&nbsp;000&nbsp;гектарах
+          плодородной земли Сибири.
+        </p>
+        <div class="hero__actions reveal" data-reveal data-delay="350">
+          <a href="#crops" class="btn btn--primary">
+            Наши культуры
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#contacts" class="btn btn--ghost">Связаться с нами</a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Прокрутить вниз">
+        <span class="hero__scroll-mouse"><span></span></span>
+        <span class="hero__scroll-text">Листайте вниз</span>
+      </a>
+    </section>
+
+    <!-- ░░░ Бегущая строка ░░░ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Пшеница</span><span class="marquee__dot">✦</span>
+        <span>Ячмень</span><span class="marquee__dot">✦</span>
+        <span>Горох</span><span class="marquee__dot">✦</span>
+        <span>Гречиха</span><span class="marquee__dot">✦</span>
+        <span>Рапс</span><span class="marquee__dot">✦</span>
+        <span>Пшеница</span><span class="marquee__dot">✦</span>
+        <span>Ячмень</span><span class="marquee__dot">✦</span>
+        <span>Горох</span><span class="marquee__dot">✦</span>
+        <span>Гречиха</span><span class="marquee__dot">✦</span>
+        <span>Рапс</span><span class="marquee__dot">✦</span>
+      </div>
+    </div>
+
+    <!-- ░░░ О КОМПАНИИ ░░░ -->
+    <section class="about section" id="about">
+      <div class="container about__grid">
+        <div class="about__visual reveal" data-reveal>
+          <div class="about__card about__card--main">
+            <span class="about__year">2004</span>
+            <span class="about__year-label">год основания хозяйства</span>
+            <div class="about__pulse"></div>
+          </div>
+          <div class="about__card about__card--sub reveal" data-reveal data-delay="200">
+            <strong>2021</strong>
+            <span>новые собственники и стратегия развития на&nbsp;5&nbsp;лет</span>
+          </div>
+        </div>
+
+        <div class="about__text">
+          <p class="section__eyebrow reveal" data-reveal>О компании</p>
+          <h2 class="section__title reveal" data-reveal data-delay="100">
+            Крупное сельскохозяйственное предприятие <span class="accent">Сибири</span>
+          </h2>
+          <p class="about__paragraph reveal" data-reveal data-delay="200">
+            ООО&nbsp;«Чернаково» специализируется на выращивании зерновых
+            и востребованных культур в&nbsp;Ордынском районе Новосибирской области.
+            Мы стремимся стать ведущим производителем пшеницы, гречихи, гороха,
+            рапса и&nbsp;ячменя в&nbsp;регионе.
+          </p>
+          <p class="about__paragraph reveal" data-reveal data-delay="300">
+            С&nbsp;2021&nbsp;года компания развивается по&nbsp;стратегическому плану:
+            расширяет земельный фонд, обновляет технику и&nbsp;складские мощности,
+            строит современный комплекс для&nbsp;очистки и&nbsp;сушки зерна.
+          </p>
+
+          <ul class="about__list reveal" data-reveal data-delay="400">
+            <li><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Современное производство с новой техникой</li>
+            <li><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Собственное зернохранилище АЗМ-AGRO-34 на газе</li>
+            <li><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Стабильный коллектив профессионалов</li>
+            <li><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Контроль качества на каждом этапе</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ ЦИФРЫ / СТАТИСТИКА ░░░ -->
+    <section class="stats section" id="stats">
+      <div class="container">
+        <p class="section__eyebrow section__eyebrow--center reveal" data-reveal>На сегодняшний день</p>
+        <h2 class="section__title section__title--center reveal" data-reveal data-delay="100">
+          Масштаб, которому <span class="accent">доверяют</span>
+        </h2>
+
+        <div class="stats__grid">
+          <div class="stat reveal" data-reveal data-delay="0">
+            <span class="stat__num" data-count="9000" data-suffix="">0</span>
+            <span class="stat__unit">Га</span>
+            <span class="stat__label">земельный фонд</span>
+          </div>
+          <div class="stat reveal" data-reveal data-delay="120">
+            <span class="stat__num" data-count="14000" data-suffix="">0</span>
+            <span class="stat__unit">м²</span>
+            <span class="stat__label">складские мощности</span>
+          </div>
+          <div class="stat reveal" data-reveal data-delay="240">
+            <span class="stat__num" data-count="20" data-suffix="+">0</span>
+            <span class="stat__unit">лет</span>
+            <span class="stat__label">опыта в&nbsp;отрасли</span>
+          </div>
+          <div class="stat reveal" data-reveal data-delay="360">
+            <span class="stat__num" data-count="5" data-suffix="">0</span>
+            <span class="stat__unit">культур</span>
+            <span class="stat__label">в&nbsp;севообороте</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ КУЛЬТУРЫ ░░░ -->
+    <section class="crops section" id="crops">
+      <div class="container">
+        <p class="section__eyebrow section__eyebrow--center reveal" data-reveal>Что мы выращиваем</p>
+        <h2 class="section__title section__title--center reveal" data-reveal data-delay="100">
+          Наши <span class="accent">культуры</span>
+        </h2>
+        <p class="section__sub reveal" data-reveal data-delay="200">
+          Тщательная обработка на собственных мощностях обеспечивает
+          стабильно высокое качество продукции.
+        </p>
+
+        <div class="crops__grid">
+          <article class="crop reveal" data-reveal data-delay="0">
+            <div class="crop__icon">
+              <svg viewBox="0 0 48 64" width="48" height="64" aria-hidden="true">
+                <path d="M24 64 L24 22" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                <path d="M24 30 q-14 -4 -18 -19 q14 0 18 12 Z" fill="currentColor"/>
+                <path d="M24 30 q14 -4 18 -19 q-14 0 -18 12 Z" fill="currentColor"/>
+                <path d="M24 20 q-12 -3 -15 -16 q12 0 15 10 Z" fill="currentColor"/>
+                <path d="M24 20 q12 -3 15 -16 q-12 0 -15 10 Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Пшеница</h3>
+            <p>Основная зерновая культура хозяйства — фундамент урожая и&nbsp;качества.</p>
+            <span class="crop__index">01</span>
+          </article>
+
+          <article class="crop reveal" data-reveal data-delay="100">
+            <div class="crop__icon">
+              <svg viewBox="0 0 48 64" width="48" height="64" aria-hidden="true">
+                <path d="M24 64 L24 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                <path d="M24 26 q-10 -2 -13 -13 M24 32 q-12 -2 -15 -14 M24 38 q-11 -2 -14 -13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M24 26 q10 -2 13 -13 M24 32 q12 -2 15 -14 M24 38 q11 -2 14 -13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Ячмень</h3>
+            <p>Ценная фуражная и&nbsp;пивоваренная культура с&nbsp;высокой урожайностью.</p>
+            <span class="crop__index">02</span>
+          </article>
+
+          <article class="crop reveal" data-reveal data-delay="200">
+            <div class="crop__icon">
+              <svg viewBox="0 0 48 64" width="48" height="64" aria-hidden="true">
+                <path d="M10 40 q14 -18 28 0" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <circle cx="14" cy="40" r="5" fill="currentColor"/>
+                <circle cx="24" cy="34" r="5" fill="currentColor"/>
+                <circle cx="34" cy="40" r="5" fill="currentColor"/>
+                <path d="M24 39 L24 58" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Горох</h3>
+            <p>Зернобобовая культура, обогащающая почву азотом и&nbsp;севооборот.</p>
+            <span class="crop__index">03</span>
+          </article>
+
+          <article class="crop reveal" data-reveal data-delay="300">
+            <div class="crop__icon">
+              <svg viewBox="0 0 48 64" width="48" height="64" aria-hidden="true">
+                <path d="M24 58 L24 24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                <path d="M24 24 l-8 -8 M24 24 l8 -8 M24 32 l-7 -6 M24 32 l7 -6 M24 40 l-6 -5 M24 40 l6 -5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="20" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Гречиха</h3>
+            <p>Востребованная крупяная культура — экологичная и&nbsp;неприхотливая.</p>
+            <span class="crop__index">04</span>
+          </article>
+
+          <article class="crop reveal" data-reveal data-delay="400">
+            <div class="crop__icon">
+              <svg viewBox="0 0 48 64" width="48" height="64" aria-hidden="true">
+                <path d="M24 58 L24 30" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                <circle cx="24" cy="18" r="6" fill="currentColor"/>
+                <circle cx="13" cy="24" r="5" fill="currentColor"/>
+                <circle cx="35" cy="24" r="5" fill="currentColor"/>
+                <circle cx="17" cy="34" r="4.5" fill="currentColor"/>
+                <circle cx="31" cy="34" r="4.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Рапс</h3>
+            <p>Масличная культура для&nbsp;производства масла и&nbsp;экспортных поставок.</p>
+            <span class="crop__index">05</span>
+          </article>
+
+          <article class="crop crop--more reveal" data-reveal data-delay="500">
+            <div class="crop__icon">
+              <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M24 10v28M10 24h28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Другие культуры</h3>
+            <p>Расширяем севооборот под запросы рынка и&nbsp;партнёров.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ ПОЧЕМУ МЫ ░░░ -->
+    <section class="advantages section" id="advantages">
+      <div class="container">
+        <div class="advantages__head">
+          <div>
+            <p class="section__eyebrow reveal" data-reveal>Почему выбирают «Чернаково»</p>
+            <h2 class="section__title reveal" data-reveal data-delay="100">
+              Опыт, технологии <br>и&nbsp;<span class="accent">ответственность</span>
+            </h2>
+          </div>
+          <p class="advantages__intro reveal" data-reveal data-delay="200">
+            Мы соединяем 20-летний опыт работы на&nbsp;земле с&nbsp;современным
+            оборудованием и&nbsp;честным отношением к&nbsp;каждому партнёру.
+          </p>
+        </div>
+
+        <div class="advantages__grid">
+          <article class="adv reveal" data-reveal data-delay="0">
+            <span class="adv__num">01</span>
+            <h3>Опыт и&nbsp;надёжность</h3>
+            <p>Более 20&nbsp;лет стабильной работы на&nbsp;аграрном рынке региона.</p>
+          </article>
+          <article class="adv reveal" data-reveal data-delay="100">
+            <span class="adv__num">02</span>
+            <h3>Современный комплекс</h3>
+            <p>Очистка и&nbsp;сушка зерна на&nbsp;линии АЗМ-AGRO-34 на&nbsp;природном газе.</p>
+          </article>
+          <article class="adv reveal" data-reveal data-delay="200">
+            <span class="adv__num">03</span>
+            <h3>Большой земельный фонд</h3>
+            <p>Около 9&nbsp;000&nbsp;Га под&nbsp;высокопродуктивные культуры.</p>
+          </article>
+          <article class="adv reveal" data-reveal data-delay="300">
+            <span class="adv__num">04</span>
+            <h3>Складские мощности</h3>
+            <p>14&nbsp;000&nbsp;м² аккредитованных помещений для&nbsp;хранения урожая.</p>
+          </article>
+          <article class="adv reveal" data-reveal data-delay="400">
+            <span class="adv__num">05</span>
+            <h3>Команда специалистов</h3>
+            <p>Слаженный коллектив, который любит и&nbsp;знает своё дело.</p>
+          </article>
+          <article class="adv reveal" data-reveal data-delay="500">
+            <span class="adv__num">06</span>
+            <h3>Экспортный потенциал</h3>
+            <p>Поставки продукции партнёрам, включая международные рынки.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ ГЕОГРАФИЯ ░░░ -->
+    <section class="geo section" id="geo">
+      <div class="container geo__grid">
+        <div class="geo__text">
+          <p class="section__eyebrow reveal" data-reveal>География</p>
+          <h2 class="section__title reveal" data-reveal data-delay="100">
+            В&nbsp;сердце <span class="accent">Сибири</span>
+          </h2>
+          <p class="geo__paragraph reveal" data-reveal data-delay="200">
+            Хозяйство расположено в&nbsp;посёлке Чернаково Ордынского района
+            Новосибирской области — в&nbsp;экологически чистом аграрном регионе
+            на&nbsp;берегу Обского водохранилища.
+          </p>
+          <address class="geo__address reveal" data-reveal data-delay="300">
+            <div class="geo__item">
+              <span class="geo__ico">📍</span>
+              <span>Новосибирская обл., Ордынский р-н,<br>п.&nbsp;Чернаково, ул.&nbsp;Ильина, 84А</span>
+            </div>
+            <div class="geo__item">
+              <span class="geo__ico">📞</span>
+              <a href="tel:+73835035167">+7 (383) 50‑35‑167</a>
+            </div>
+          </address>
+        </div>
+
+        <div class="geo__map reveal" data-reveal data-delay="200">
+          <div class="geo__pin">
+            <span class="geo__pin-dot"></span>
+            <span class="geo__pin-ring"></span>
+            <span class="geo__pin-label">Чернаково</span>
+          </div>
+          <svg class="geo__lines" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 80 Q140 40 400 120" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+            <path d="M0 160 Q200 120 400 200" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+            <path d="M60 0 Q120 150 80 300" fill="none" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+            <path d="M260 0 Q300 160 240 300" fill="none" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ CTA / КОНТАКТЫ ░░░ -->
+    <section class="contacts section" id="contacts">
+      <div class="container">
+        <div class="contacts__card reveal" data-reveal>
+          <div class="contacts__glow"></div>
+          <div class="contacts__inner">
+            <div class="contacts__lead">
+              <p class="section__eyebrow">Контакты</p>
+              <h2 class="section__title">Готовы к&nbsp;<span class="accent">сотрудничеству</span></h2>
+              <p class="contacts__text">
+                Оставьте заявку — обсудим поставки зерна, условия и&nbsp;объёмы.
+                Ответим в&nbsp;рабочее время.
+              </p>
+              <div class="contacts__direct">
+                <a href="tel:+73835035167" class="contacts__link">
+                  <span>Телефон</span><strong>+7 (383) 50‑35‑167</strong>
+                </a>
+                <a href="mailto:info@chernakovo.ru" class="contacts__link">
+                  <span>Почта</span><strong>info@chernakovo.ru</strong>
+                </a>
+              </div>
+            </div>
+
+            <form class="contacts__form" id="contactForm" novalidate>
+              <div class="field">
+                <input type="text" id="name" name="name" required placeholder=" " />
+                <label for="name">Ваше имя</label>
+              </div>
+              <div class="field">
+                <input type="tel" id="phone" name="phone" required placeholder=" " />
+                <label for="phone">Телефон</label>
+              </div>
+              <div class="field">
+                <textarea id="message" name="message" rows="3" placeholder=" "></textarea>
+                <label for="message">Сообщение</label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">
+                Отправить заявку
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <p class="contacts__note" id="formNote" hidden>Спасибо! Заявка отправлена — мы скоро свяжемся с&nbsp;вами.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ░░░ ПОДВАЛ ░░░ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#hero" class="logo logo--light">
+          <span class="logo__text">
+            <strong>ЧЕРНАКОВО</strong>
+            <small>зерновая компания · с 2004</small>
+          </span>
+        </a>
+        <p>Выращиваем зерно для&nbsp;тех, кто ценит качество и&nbsp;надёжность.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a href="#about">О компании</a>
+        <a href="#crops">Культуры</a>
+        <a href="#advantages">Почему мы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="footer__meta">
+        <p>ООО «Чернаково»</p>
+        <p>Новосибирская обл., Ордынский р-н, п. Чернаково</p>
+        <p>ИНН 5434116945</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> ООО «Чернаково». Все права защищены.</span>
+      <a href="#hero" class="footer__top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
