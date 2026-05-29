@@ -1,5 +1,5 @@
 // Фотографии — Unsplash CDN (свободная лицензия, прямой хотлинк)
-const U = (id, w = 1600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+const U = (id, w = 1280) => `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`;
 export const IMAGES = {
   wheatField: U('1437252611977-07f74518abd7'),   // золотые колосья
   aerialFields: U('1563514227147-6d2ff665a6a0'),  // поля с высоты

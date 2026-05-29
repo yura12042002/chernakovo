@@ -40,11 +40,13 @@ body {
   background: var(--color-forest-950);
   color: var(--color-sand-50);
   overflow-x: clip;
-  /* мягкая фоновая подсветка по краям, чтобы дизайн не был плоским */
+  /* мягкая фоновая подсветка по краям. Раньше тут было
+     background-attachment: fixed — оно заставляло браузер перерисовывать
+     весь фон на КАЖДОМ кадре скролла (особенно тяжело со smooth-scroll
+     Lenis) и было главной причиной лагов. Градиенты дёшевы и без fixed. */
   background-image:
     radial-gradient(60% 50% at 50% -5%, rgba(34, 84, 55, 0.55), transparent 70%),
     radial-gradient(40% 35% at 100% 100%, rgba(246, 200, 79, 0.06), transparent 70%);
-  background-attachment: fixed;
 }
 ::selection { background: var(--color-gold-400); color: #1a1205; }
 
@@ -91,7 +93,7 @@ body {
 
 .glass {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
-  backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(10px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
@@ -118,8 +120,9 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
   animation: spinAngle 4s linear infinite;
+  animation-play-state: paused; /* крутим конический градиент только при наведении */
 }
-.border-anim:hover::before { opacity: 1; }
+.border-anim:hover::before { opacity: 1; animation-play-state: running; }
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -173,7 +176,11 @@ body {
     radial-gradient(50% 50% at 62% 82%, rgba(32, 84, 55, 0.55), transparent 65%),
     radial-gradient(36% 36% at 12% 82%, rgba(166, 236, 99, 0.2), transparent 60%),
     radial-gradient(30% 30% at 90% 60%, rgba(224, 138, 60, 0.16), transparent 60%);
-  filter: blur(44px);
+  filter: blur(40px);
+  /* промотируем в отдельный GPU-слой: блюр растеризуется один раз,
+     scale/translate во время скролла применяются к готовому битмапу */
+  will-change: transform;
+  transform: translateZ(0);
   animation: meshMove 18s ease-in-out infinite alternate;
 }
 @keyframes meshMove {
@@ -195,11 +202,14 @@ body {
   100% { transform: scale(4); opacity: 0; }
 }
 
-/* поток воды и пунктир-маршрут на карте */
-@keyframes mapFlow { to { stroke-dashoffset: -1200; } }
-.map-flow { animation: mapFlow 14s linear infinite; }
-@keyframes mapDash { to { stroke-dashoffset: -240; } }
-.map-dash { animation: mapDash 8s linear infinite; }
+/* поток воды и пунктир-маршрут на карте.
+   Смещение в конце кадра — РОВНО кратное периоду штриха, иначе на
+   повторе цикла линия «прыгает». map-flow: dasharray 3 24 → период 27
+   (1188 = 44×27). map-dash: dasharray 7 7 → период 14 (224 = 16×14). */
+@keyframes mapFlow { to { stroke-dashoffset: -1188; } }
+.map-flow { animation: mapFlow 16s linear infinite; }
+@keyframes mapDash { to { stroke-dashoffset: -224; } }
+.map-dash { animation: mapDash 9s linear infinite; }
 @keyframes mapTwinkle { 0%,100% { opacity: .25; } 50% { opacity: .9; } }
 
 /* мобильная адаптация фоновых эффектов: меньше блюра ради производительности */

@@ -141,14 +141,16 @@ export default function GeoMap() {
         Обское вдхр.
       </text>
 
-      {/* маршрут до Новосибирска */}
+      {/* маршрут до Новосибирска — плавный «текущий» пунктир.
+          Анимируем только opacity (не pathLength), чтобы framer-motion
+          не выставлял inline stroke-dashoffset и не конфликтовал с .map-dash */}
       <motion.path
         d={ROUTE} fill="none" stroke="#f6c84f" strokeOpacity="0.6" strokeWidth="1.8" strokeDasharray="7 7"
         className="map-dash"
-        initial={{ pathLength: 0, opacity: 0 }}
-        whileInView={{ pathLength: 1, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.8, delay: 0.6 }}
+        transition={{ duration: 0.9, delay: 0.6 }}
       />
       <circle r="3" fill="#ffe7a3">
         <animateMotion dur="6s" repeatCount="indefinite" path={ROUTE} rotate="auto" />
